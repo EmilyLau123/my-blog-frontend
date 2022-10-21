@@ -1,5 +1,5 @@
-import { Paper, Typography } from '@mui/material';
-import { Box } from '@mui/system';
+import { Paper, Card } from '@mui/material';
+import CustomAccList from '../components/CustomAccList';
 import CustomCarousel from '../components/CustomCarousel';
 
 const Home = () => {
@@ -14,14 +14,13 @@ const Home = () => {
     }
   ];
   return (
-    <Box>
-      <Paper sx={{ width: '60%', m: 10, p: 5 }}>
-        <Typography variant='h4'>Welcome Back!</Typography>
+    <Card>
+      <CustomAccList />
+      {/* <Typography variant='h4'>Welcome Back!</Typography>sx={{ width: '60%', m: 10, p: 5 }}
       </Paper>
       <Paper>
-        <CustomCarousel items={items} />
-      </Paper>
-    </Box>
+        <CustomCarousel items={items} /> */}
+    </Card>
   );
 };
 

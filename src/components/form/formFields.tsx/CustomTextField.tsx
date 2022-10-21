@@ -3,10 +3,12 @@ import { ControllerRenderProps, FieldValues } from 'react-hook-form';
 
 const CustomTextField = ({
   label,
-  fieldProps
+  fieldProps,
+  rows
 }: {
   label: string;
   fieldProps: ControllerRenderProps<FieldValues, string>;
+  rows?: number;
 }) => {
   return (
     <TextField
@@ -14,6 +16,8 @@ const CustomTextField = ({
       label={label}
       value={fieldProps.value}
       onChange={fieldProps.onChange}
+      rows={rows ? 6 : 0}
+      multiline={rows ? true : false}
       variant='outlined'
       fullWidth
     />

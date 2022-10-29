@@ -9,19 +9,21 @@ import FormatUnderlinedIcon from '@mui/icons-material/FormatUnderlined';
 import FormatItalicIcon from '@mui/icons-material/FormatItalic';
 import CodeIcon from '@mui/icons-material/Code';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
+import SettingsIcon from '@mui/icons-material/Settings';
 //Editor
 export const BOLD_ICON = FormatBoldIcon;
 export const UNDERLINE_ICON = FormatUnderlinedIcon;
 export const ITALIC_ICON = FormatItalicIcon;
 export const CODE_ICON = CodeIcon;
 export const IMAGE_ICON = AddPhotoAlternateIcon;
-
+//
 export const MENU_ICON = MenuIcon;
 export const EXPAND_ICON = ExpandMore;
 export const COLLAPSE_ICON = ExpandLess;
 
 export const HOME_ICON = HomeOutlinedIcon;
-
+//Drawer
 export const ADD_CAT_ICON = CategoryOutlinedIcon;
 export const ADD_TOPIC_ICON = TopicOutlinedIcon;
 export const ADD_POST_ICON = PostAddOutlinedIcon;
+export const SETTINGS_ICON = SettingsIcon;

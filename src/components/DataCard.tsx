@@ -5,23 +5,25 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { topicType } from '../utils/type/topicType';
+import { postType } from '../utils/type/postType';
+import { Topic } from '@mui/icons-material';
 
-export default function DataCard() {
+const DataCard = ({ data }: { data: topicType }) => {
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
+    <Card sx={{ minWidth: 345 }}>
+      {/* <CardMedia
         component='img'
         height='140'
         image='/static/images/cards/contemplative-reptile.jpg'
         alt='green iguana'
-      />
+      /> */}
       <CardContent>
         <Typography gutterBottom variant='h5' component='div'>
-          Lizard
+          {data.title}
         </Typography>
         <Typography variant='body2' color='text.secondary'>
-          Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-          across all continents except Antarctica
+          {data.description}
         </Typography>
       </CardContent>
       <CardActions>
@@ -30,4 +32,5 @@ export default function DataCard() {
       </CardActions>
     </Card>
   );
-}
+};
+export default DataCard;

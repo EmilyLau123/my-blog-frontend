@@ -32,7 +32,7 @@ const ListSubItem = ({ item }: { item: categoryType }) => {
               <ListItemButton
                 sx={{ pl: 4 }}
                 component={Link}
-                to={`${item.value}/${listItem.value}/list`}
+                to={`category/${item.value}/topic/${listItem.value}/list`}
               >
                 {listItem.icon && <ListItemIcon>{listItem.icon}</ListItemIcon>}
                 <ListItemText primary={listItem.title} />
@@ -63,7 +63,7 @@ const CustomAccList = () => {
           {item.topics ? (
             <ListSubItem item={item} />
           ) : (
-            <ListItemButton key={item.value} component={Link} to={`${item.value}/list`}>
+            <ListItemButton key={item.value} component={Link} to={`category/${item.value}/list`}>
               {item.icon && <ListItemIcon>{item.icon}</ListItemIcon>}
               <ListItemText primary={item.label} />
             </ListItemButton>

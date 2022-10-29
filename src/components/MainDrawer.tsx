@@ -10,7 +10,15 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
-import { Collapse, IconButton, ListSubheader, ThemeProvider, Typography } from '@mui/material';
+import {
+  Collapse,
+  IconButton,
+  ListSubheader,
+  ThemeProvider,
+  Typography,
+  useMediaQuery,
+  useTheme
+} from '@mui/material';
 import { useState } from 'react';
 import { DRAWER_WIDTH } from '../utils/sizes';
 import { MOCK_LISTITEM } from '../mock/listItems';
@@ -22,7 +30,8 @@ import {
   COLLAPSE_ICON,
   EXPAND_ICON,
   HOME_ICON,
-  MENU_ICON
+  MENU_ICON,
+  SETTINGS_ICON
 } from '../theme/icons';
 import { ThemeContext } from '@emotion/react';
 import {
@@ -42,6 +51,9 @@ import palette from '../theme/palette';
 
 const MainDrawer = () => {
   const navigate = useNavigate();
+  const theme = useTheme();
+
+  const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
 
   return (
     <Drawer
@@ -68,7 +80,7 @@ const MainDrawer = () => {
         sx={{ justifySelf: 'center' }}
         startIcon={<HOME_ICON />}
       >
-        home
+        {isDesktop && 'home'}
       </Button>
       <Button
         component={Link}
@@ -77,7 +89,7 @@ const MainDrawer = () => {
         sx={{ justifySelf: 'center' }}
         startIcon={<ADD_CAT_ICON />}
       >
-        new category
+        {isDesktop && 'new category'}
       </Button>
       <Button
         component={Link}
@@ -86,7 +98,7 @@ const MainDrawer = () => {
         sx={{ justifySelf: 'center' }}
         startIcon={<ADD_TOPIC_ICON />}
       >
-        NEW TOPIC
+        {isDesktop && 'NEW TOPIC'}
       </Button>
       <Button
         component={Link}
@@ -95,13 +107,19 @@ const MainDrawer = () => {
         sx={{ justifySelf: 'center' }}
         startIcon={<ADD_POST_ICON />}
       >
-        NEW POST
+        {isDesktop && 'NEW POST'}
       </Button>
       {/* <Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
             News
           </Typography> */}
-      <Button component={Link} to='setting' color='inherit' sx={{ justifySelf: 'center' }}>
-        Setting
+      <Button
+        component={Link}
+        to='setting'
+        color='inherit'
+        sx={{ justifySelf: 'center' }}
+        startIcon={<SETTINGS_ICON />}
+      >
+        {isDesktop && 'Settings'}
       </Button>
       {/* <CustomList onRedirect={toggleDrawer} /> */}
     </Drawer>

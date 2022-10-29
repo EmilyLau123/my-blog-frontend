@@ -13,8 +13,8 @@ export default function Browser() {
     <Routes>
       <Route path='/*' element={<MainLayout />}>
         <Route index element={<Home />} />
-        <Route path=':category/list' element={<TopicList />} />
-        <Route path=':category/:topic/list' element={<DataList />} />
+        <Route path='category/:category/list' element={<DataList />} />
+        <Route path='category/:category/topic/:topic/list' element={<DataList />} />
         <Route path='topic/create' element={<TopicForm title='Add New Topic' />} />
         <Route path='category/create' element={<CategoryForm title='Add New Category' />} />
         <Route path='post/create' element={<PostForm title='Add New Post' />} />

@@ -47,7 +47,7 @@ const ListSubItem = ({ item }: { item: categoryType }) => {
 };
 // {`/${item.value}/${listItem.value}/list`}
 
-const CustomAccList = () => {
+const CustomAccList = ({ data }: { data: any[] }) => {
   return (
     <Box>
       {/* <Typography variant='h4'>Categories</Typography> */}

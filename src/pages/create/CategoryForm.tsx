@@ -16,8 +16,8 @@ const formFields: fromFieldsType[] = [
   }
 ];
 
-const CategoryForm = ({ title }: { title: string }) => {
-  return <CustomForm title={title} formFields={formFields} />;
+const CategoryForm = ({ pageTitle }: { pageTitle: string }) => {
+  return <CustomForm title={pageTitle} formFields={formFields} />;
 };
 
 export default CategoryForm;

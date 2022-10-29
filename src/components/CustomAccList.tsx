@@ -5,8 +5,10 @@ import {
   List,
   ListItemIcon,
   ListSubheader,
-  Divider
+  Divider,
+  Typography
 } from '@mui/material';
+import { Box } from '@mui/system';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { MOCK_CATS } from '../mock/category';
@@ -32,7 +34,7 @@ const ListSubItem = ({ item }: { item: categoryType }) => {
               <ListItemButton
                 sx={{ pl: 4 }}
                 component={Link}
-                to={`category/${item.value}/topic/${listItem.value}/list`}
+                to={`category/${item.value}/topic/${listItem.value}/post/list`}
               >
                 {listItem.icon && <ListItemIcon>{listItem.icon}</ListItemIcon>}
                 <ListItemText primary={listItem.title} />
@@ -47,30 +49,37 @@ const ListSubItem = ({ item }: { item: categoryType }) => {
 
 const CustomAccList = () => {
   return (
-    <List
-      sx={{ width: '100%', height: '100%', minWidth: 360 }}
-      // component='nav'
-      aria-labelledby='nested-list-subheader'
-      subheader={
-        <ListSubheader component='div' id='nested-list-subheader'>
-          Categories
-        </ListSubheader>
-      }
-    >
-      <Divider />
-      {MOCK_CATS.map((item: categoryType) => (
-        <>
-          {item.topics ? (
-            <ListSubItem item={item} />
-          ) : (
-            <ListItemButton key={item.value} component={Link} to={`category/${item.value}/list`}>
-              {item.icon && <ListItemIcon>{item.icon}</ListItemIcon>}
-              <ListItemText primary={item.label} />
-            </ListItemButton>
-          )}
-        </>
-      ))}
-    </List>
+    <Box>
+      {/* <Typography variant='h4'>Categories</Typography> */}
+      <List
+        sx={{ width: '100%', height: '100%', minWidth: 360 }}
+        // component='nav'
+        aria-labelledby='nested-list-subheader'
+        // subheader={
+        //   <ListSubheader component='div' id='nested-list-subheader'>
+        //     Categories
+        //   </ListSubheader>
+        // }
+      >
+        {/* <Divider /> */}
+        {MOCK_CATS.map((item: categoryType) => (
+          <>
+            {item.topics ? (
+              <ListSubItem item={item} />
+            ) : (
+              <ListItemButton
+                key={item.value}
+                component={Link}
+                to={`category/${item.value}/topic/list`}
+              >
+                {item.icon && <ListItemIcon>{item.icon}</ListItemIcon>}
+                <ListItemText primary={item.label} />
+              </ListItemButton>
+            )}
+          </>
+        ))}
+      </List>
+    </Box>
   );
 };
 

@@ -1,4 +1,4 @@
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import DataCard from '../components/DataCard';
 import { topicType } from '../utils/type/topicType';
 
@@ -17,12 +17,13 @@ const MOCK_TOPIC_LIST: topicType[] = [
   }
 ];
 
-const DataList = () => {
+const DataList = ({ pageTitle }: { pageTitle: string }) => {
   return (
     <Box>
+      <Typography variant='h4'>{pageTitle}</Typography>
       {MOCK_TOPIC_LIST.map((topic) => (
         <Box key={topic.id} sx={{ mb: 3 }}>
-          <DataCard data={topic} />
+          <DataCard type={pageTitle} data={topic} />
         </Box>
       ))}
     </Box>
